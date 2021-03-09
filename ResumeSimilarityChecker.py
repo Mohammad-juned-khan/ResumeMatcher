@@ -17,6 +17,8 @@ def read_file(file):
     return all_text
 
 #function for checking
+
+
 def check_similarity(text):
     count_matrix = cv.fit_transform(text)
     match_result = cosine_similarity(count_matrix) [0][1]
@@ -30,19 +32,34 @@ def main():
                         		</br>"""
     st.markdown(html_temp1, unsafe_allow_html=True)
     menu = ["Home", "Check Similarity", "About"]
-    choice = st.sidebar.selectbox("Menu", menu)
+    choice = st.sidebar.selectbox("Menu", menu,2)
+    # for hide menu
+    hide_streamlit_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+                </style>
+                """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+    st.sidebar.markdown(
+        """ Developed by Mohammad Juned Khan    
+            Email : Mohammad.juned.z.khan@gmail.com  
+            [LinkedIn] (https://www.linkedin.com/in/md-juned-khan)""")
 
     if choice == "Home":
         # color codes  ff1a75  6D7B8D
         html_temp2 = """
                 		<div style="background-color:#98AFC7;padding:10px">
                 		<h4 style="color:white;text-align:center;">This application Helps you check similarity between your job description and resume. You can upload both the files in PDF or Doc formate.</h4>
+                		<h4 style="color:white;text-align:center;">Click on Check Similarity in Sidebar Menus.</h4>
                 		</div>
                 		<br></br>
                 		<br></br>"""
 
         st.markdown(html_temp2, unsafe_allow_html=True)
-        st.subheader("Home")
+
     elif choice == "Check Similarity":
         html_temp3 = """
                         		<div style="background-color:#98AFC7;padding:10px">
@@ -73,10 +90,22 @@ def main():
                 st.success("Match: {}%".format(match_percent))
             else:
                 st.success("Upload file")
+        else:
+            None
         #st.write("Check similarity of Resume and Job Description")
+    elif choice == "About":
+        html_temp4 = """
+                       		<div style="background-color:#98AFC7;padding:10px">
+                       		<h4 style="color:white;text-align:center;">This Application is developed by Mohammad Juned Khan using Streamlit Framework. If you're on LinkedIn and want to connect, just click on the link in sidebar and shoot me a request. You can also mail your comments. </h4>
+                       		<h4 style="color:white;text-align:center;">Thanks for Visiting</h4>
+                       		
+                       		</div>
+                       		<br></br>
+                       		<br></br>"""
 
-
-
+        st.markdown(html_temp4, unsafe_allow_html=True)
+    else:
+        None
 
 
 if __name__ == '__main__':
