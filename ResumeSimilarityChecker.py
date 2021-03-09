@@ -52,7 +52,7 @@ def main():
         # color codes  ff1a75  6D7B8D
         html_temp2 = """
                 		<div style="background-color:#98AFC7;padding:10px">
-                		<h4 style="color:white;text-align:center;">This application Helps you check similarity between your job description and resume. You can upload both the files in PDF or Doc formate.</h4>
+                		<h4 style="color:white;text-align:center;">This application Helps you check similarity between your job description and resume or you can check similarity of two documents. You can upload both the files in PDF formate.</h4>
                 		<h4 style="color:white;text-align:center;">Click on Check Similarity in Sidebar Menus.</h4>
                 		</div>
                 		<br></br>
